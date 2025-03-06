@@ -716,7 +716,7 @@ const Unit = struct {
             break :fill DW.CFA.nop;
         } else if (sec == &dwarf.debug_info.section) fill: {
             assert(uleb128Bytes(@intFromEnum(AbbrevCode.null)) == 1);
-            trailer.appendNTimesAssumeCapacity(@intFromEnum(AbbrevCode.null), 2);
+            trailer.appendNTimesAssumeCapacity(@intFromEnum(AbbrevCode.null), 1);
             break :fill @intFromEnum(AbbrevCode.null);
         } else if (sec == &dwarf.debug_rnglists.section) fill: {
             trailer.appendAssumeCapacity(DW.RLE.end_of_list);
